@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><title>Dashboard</title><link rel="stylesheet" href="css/style.css"></head>
+<body>
+<div class="container">
+<h1>Dashboard</h1>
+<div class="actions">
+<a class="button" href="add_student.html">Add Student</a>
+<input id="search" placeholder="Search student..." onkeyup="loadStudents()">
+</div>
+<table>
+<thead><tr><th>ID</th><th>Name</th><th>Course</th><th>Department</th><th>Year</th><th>Actions</th></tr></thead>
+<tbody id="studentTable"></tbody>
+</table>
+</div>
+<script src="js/script.js"></script>
+<script>loadStudents();</script>
+</body>
+</html>

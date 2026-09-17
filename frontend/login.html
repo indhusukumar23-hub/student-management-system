@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head><title>Login</title><link rel="stylesheet" href="css/style.css"></head>
+<body>
+<div class="card">
+<h2>Student Management System</h2>
+<input id="username" placeholder="Username">
+<input id="password" type="password" placeholder="Password">
+<button onclick="login()">Login</button>
+<p id="message"></p>
+</div>
+<script>
+function login(){
+    if(document.getElementById("username").value && document.getElementById("password").value){
+        window.location.href="dashboard.html";
+    } else {
+        document.getElementById("message").textContent="Enter username and password.";
+    }
+}
+</script>
+</body>
+</html>

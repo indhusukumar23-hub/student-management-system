@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head><title>Add Student</title><link rel="stylesheet" href="css/style.css"></head>
+<body>
+<div class="card">
+<h2>Add Student</h2>
+<form id="studentForm">
+<input name="student_id" placeholder="Student ID" required>
+<input name="student_name" placeholder="Student Name" required>
+<input name="date_of_birth" type="date" required>
+<input name="gender" placeholder="Gender" required>
+<input name="email" type="email" placeholder="Email" required>
+<input name="phone" placeholder="Phone Number" required>
+<textarea name="address" placeholder="Address" required></textarea>
+<input name="course" placeholder="Course" required>
+<input name="department" placeholder="Department" required>
+<input name="year" type="number" min="1" max="10" placeholder="Year" required>
+<input name="admission_date" type="date" required>
+<button type="submit">Save Student</button>
+</form>
+<p id="message"></p>
+<a href="dashboard.html">Back to Dashboard</a>
+</div>
+<script src="js/script.js"></script>
+<script>
+document.getElementById("studentForm").addEventListener("submit", async function(e){
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(this));
+    data.year = Number(data.year);
+    const response = await fetch(API, {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(data)});
+    if(response.ok){ alert("Student added successfully"); location.href="dashboard.html"; }
+    else document.getElementById("message").textContent = "Please check the entered data.";
+});
+</script>
+</body>
+</html>
